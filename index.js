@@ -27,6 +27,9 @@ app.get('/',(req,res)=>{
 app.get('/success',(req,res)=>{
     res.render("success")
 })
+app.get('/Error',(req,res)=>{
+    res.render("Error")
+})
 
 app.post('/create',async(req,res)=>{
    const {Fname,Lname,Email,Password}= req.body;
@@ -45,7 +48,7 @@ app.post('/create',async(req,res)=>{
    }
    else{
  console.log("Email Already Registered");
-    res.redirect("/")
+    res.redirect("/Error")
    }
   
 
