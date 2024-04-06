@@ -29,8 +29,9 @@ app.get('/success',(req,res)=>{
 })
 
 app.post('/create',async(req,res)=>{
-   const {Fname,Lname,Email ,Password}= req.body;
-   existUser= create.findOne({Email})
+   const {Fname,Lname,Email,Password}= req.body;
+   existUser=await create.findOne({Email:Email})
+   console.log(Email)
    if(!existUser){
        let data= new create({
         Fname,
@@ -52,4 +53,4 @@ app.post('/create',async(req,res)=>{
 })
 
 
-app.listen(4500,()=>{console.log("server is running on the port no 4500")})
+app.listen(4600,()=>{console.log("server is running on the port no 4600")})
